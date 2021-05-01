@@ -3,7 +3,12 @@
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/justoverclock/flarum-ext-infocards.svg)](https://packagist.org/packages/justoverclock/flarum-ext-infocards) [![Total Downloads](https://img.shields.io/packagist/dt/justoverclock/flarum-ext-infocards.svg)](https://packagist.org/packages/justoverclock/flarum-ext-infocards)
 
-A [Flarum](http://flarum.org) extension. Display 3 infocards with forum stats
+A [Flarum](http://flarum.org) extension. Display 3 infocards with basic forum stats.
+
+ - Avatar Editor to uload/remove your avatar
+ - Basic visitors counter
+ - Total Post written
+ - User Groups
 
 ### Usage
 
