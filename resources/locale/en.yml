@@ -1,0 +1,13 @@
+flarum-ext-infocards:
+  forum:
+    welcome_back: Welcome Back,
+    postuwrote: Post you wrote
+    totalpost: Total Post
+    totdisc: Total Discussions
+    opthread: Opened Threads
+    viscounter: Visit Counter
+    wasviewed: This page was viewed
+  admin:
+    createapikey: Api Key
+    apikeyhelp: Create a Free api key on https://countapi.xyz/
+
