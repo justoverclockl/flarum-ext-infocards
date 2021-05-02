@@ -8,6 +8,7 @@ A [Flarum](http://flarum.org) extension. Display 3 infocards with basic forum st
  - Avatar Editor to uload/remove your avatar
  - Basic visitors counter
  - Total Post written
+ - Total discussions opened
  - User Groups
 
 ### Usage
