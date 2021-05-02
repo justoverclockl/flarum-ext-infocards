@@ -16,6 +16,8 @@ import formatNumber from 'flarum/utils/formatNumber';
 import listItems from 'flarum/helpers/listItems';
 import AvatarEditor from 'flarum/components/AvatarEditor';
 
+/* global m */
+
 app.initializers.add('justoverclock/flarum-ext-infocards', () => {
   extend(IndexPage.prototype, 'view', function (vdom) {
     const user = app.session.user;
@@ -26,17 +28,20 @@ app.initializers.add('justoverclock/flarum-ext-infocards', () => {
             m('h3', { class: 'textone' }, app.translator.trans('flarum-ext-infocards.forum.welcome_back')),
             m('div', { class: 'avataric' }, AvatarEditor.component({ user })),
             m('p', { class: 'textone' }, m('strong', username(user))),
+            m('p', app.translator.trans('flarum-ext-infocards.forum.groups'), ':'),
             m('div', { class: 'icocont' }, m('div', { class: 'iconbadge' }, listItems(user.badges().toArray()))),
           ]),
           m('div', { class: 'card card-2' }, [
-            m('h3', { class: 'fontic2' }, app.translator.trans('flarum-ext-infocards.forum.postuwrote')),
-            m('p', app.translator.trans('flarum-ext-infocards.forum.totalpost')),
+            m('h3', { class: 'fontic2' }, app.translator.trans('flarum-ext-infocards.forum.forumstats')),
+            m('p', app.translator.trans('flarum-ext-infocards.forum.totdisc'), ': ', m('b', formatNumber(user.discussionCount()))),
+            m('p', app.translator.trans('flarum-ext-infocards.forum.totalpost'), ':'),
             m('div', { class: 'numbercount' }, m('span', formatNumber(user.commentCount()))),
           ]),
           m('div', { class: 'card card-2' }, [
             m('h3', { class: 'fontic3' }, app.translator.trans('flarum-ext-infocards.forum.viscounter')),
+            m('div', { class: 'time', id: 'time' }),
             m('p', app.translator.trans('flarum-ext-infocards.forum.wasviewed')),
-            m('div', { class: 'numbercount' }, m('span', { id: 'count' })),
+            m('div', { class: 'numbercount' }, m('span', { id: 'count' }), ' ', app.translator.trans('flarum-ext-infocards.forum.times')),
           ]),
         ]);
         vdom.children.splice(1, 0, insert);
@@ -54,5 +59,32 @@ app.initializers.add('justoverclock/flarum-ext-infocards', () => {
           countVisit.innerHTML = res.value;
         });
     }
+  });
+  extend(IndexPage.prototype, 'oncreate', function () {
+    var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    function checkTime() {
+      var date = new Date();
+      var sufix = '';
+      var hours = ('0' + date.getHours()).slice(-2);
+      var minutes = ('0' + date.getMinutes()).slice(-2);
+      var day = date.getDate();
+      var month = monthNames[date.getMonth()];
+      var weekday = dayNames[date.getDay()];
+      if (day > 3 && day < 21) sufix = 'th';
+      switch (day % 10) {
+        case 1:
+          sufix = 'st';
+        case 2:
+          sufix = 'nd';
+        case 3:
+          sufix = 'rd';
+        default:
+          sufix = 'th';
+      }
+      document.getElementById('time').innerHTML =
+        "  It's <span class='hour'>" + hours + ':' + minutes + "</span><br/><span class='date'>" + month + ' ' + day + sufix + ', ' + weekday + '.';
+    }
+    setInterval(checkTime(), 1000);
   });
 });

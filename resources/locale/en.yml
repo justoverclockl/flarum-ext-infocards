@@ -1,12 +1,14 @@
 flarum-ext-infocards:
   forum:
     welcome_back: Welcome Back,
-    postuwrote: Post you wrote
+    forumstats: Forum Stats
     totalpost: Total Post
     totdisc: Total Discussions
     opthread: Opened Threads
     viscounter: Visit Counter
     wasviewed: This page was viewed
+    groups: Your actual Groups
+    times: Times
   admin:
     createapikey: Api Key
     apikeyhelp: Create a Free api key on https://countapi.xyz/
