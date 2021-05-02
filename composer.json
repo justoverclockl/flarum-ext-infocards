@@ -2,7 +2,7 @@
   "name": "justoverclock/flarum-ext-infocards",
   "description": "Display 3 infocards with forum stats",
   "keywords": [
-    "flarum"
+    "flarum", "infocards", "statistics"
   ],
   "type": "flarum-extension",
   "license": "MIT",
@@ -16,17 +16,13 @@
     {
       "name": "Marco Colia",
       "email": "info@flarum.it",
-      "role": "Developer"
+      "role": "Developer",
+      "homepage": "https://flarum.it"
     }
   ],
   "autoload": {
     "psr-4": {
       "Justoverclock\\Infocards\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Justoverclock\\Infocards\\Tests\\": "tests/"
     }
   },
   "extra": {

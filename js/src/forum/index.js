@@ -38,7 +38,7 @@ app.initializers.add('justoverclock/flarum-ext-infocards', () => {
             m('div', { class: 'numbercount' }, m('span', formatNumber(user.commentCount()))),
           ]),
           m('div', { class: 'card card-2' }, [
-            m('h3', { class: 'fontic3' }, app.translator.trans('flarum-ext-infocards.forum.viscounter')),
+            m('h3', { class: 'fontic3' }, app.translator.trans('flarum-ext-infocards.forum.geninfo')),
             m('div', { class: 'time', id: 'time' }),
             m('p', app.translator.trans('flarum-ext-infocards.forum.wasviewed')),
             m('div', { class: 'numbercount' }, m('span', { id: 'count' }), ' ', app.translator.trans('flarum-ext-infocards.forum.times')),
@@ -62,7 +62,15 @@ app.initializers.add('justoverclock/flarum-ext-infocards', () => {
   });
   extend(IndexPage.prototype, 'oncreate', function () {
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var dayNames = [
+      app.translator.trans('flarum-ext-infocards.forum.sunday'),
+      app.translator.trans('flarum-ext-infocards.forum.monday'),
+      app.translator.trans('flarum-ext-infocards.forum.tuesday'),
+      app.translator.trans('flarum-ext-infocards.forum.wednesday'),
+      app.translator.trans('flarum-ext-infocards.forum.thursday'),
+      app.translator.trans('flarum-ext-infocards.forum.friday'),
+      app.translator.trans('flarum-ext-infocards.forum.saturday'),
+    ];
     function checkTime() {
       var date = new Date();
       var sufix = '';
