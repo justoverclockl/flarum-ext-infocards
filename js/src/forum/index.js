@@ -50,6 +50,7 @@ app.initializers.add('justoverclock/flarum-ext-infocards', () => {
   extend(IndexPage.prototype, 'oncreate', function () {
     const countVisit = document.getElementById('count');
     const apik = app.forum.attribute('ApiKey');
+    if (countVisit === null) return;
     updateVisitCount();
 
     function updateVisitCount() {
@@ -90,8 +91,10 @@ app.initializers.add('justoverclock/flarum-ext-infocards', () => {
         default:
           sufix = 'th';
       }
-      document.getElementById('time').innerHTML =
-        "  It's <span class='hour'>" + hours + ':' + minutes + "</span><br/><span class='date'>" + month + ' ' + day + sufix + ', ' + weekday + '.';
+      const timeElement = document.getElementById('time');
+      if (timeElement)
+        document.getElementById('time').innerHTML =
+          "  It's <span class='hour'>" + hours + ':' + minutes + "</span><br/><span class='date'>" + month + ' ' + day + sufix + ', ' + weekday + '.';
     }
     setInterval(checkTime(), 1000);
   });
