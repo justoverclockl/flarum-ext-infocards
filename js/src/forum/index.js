@@ -50,6 +50,10 @@ app.initializers.add('justoverclock/flarum-ext-infocards', () => {
   extend(IndexPage.prototype, 'oncreate', function () {
     const countVisit = document.getElementById('count');
     const apik = app.forum.attribute('ApiKey');
+    /*if (apik === "") {
+      alert("Remember to create your Api in admin panel, or visits can't be showed"); // add an alert for empty APik field
+      return false;
+    }*/
     if (countVisit === null) return;
     updateVisitCount();
 
