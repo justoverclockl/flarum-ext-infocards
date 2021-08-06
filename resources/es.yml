@@ -1,0 +1,23 @@
+flarum-ext-infocards:
+  forum:
+    geninfo: Información General
+    welcome_back: Bienvenid@ de nuevo,
+    forumstats: Estadísticas del foro
+    totalpost: Publicaciones totales
+    totdisc: Discusiones totales
+    opthread: Hilos abiertos
+    viscounter: Contador de visitas
+    wasviewed: Esta página ha sido visitada
+    groups: Tus grupos actuales
+    times: Veces
+    sunday: Domingo
+    monday: Lunes
+    tuesday: Martes
+    wednesday: Miércoles
+    thursday: Jueves
+    friday: Viernes
+    saturday: Sábado
+  admin:
+    createapikey: Clave API
+    apikeyhelp: Crea una clave API en https://countapi.xyz/
+
